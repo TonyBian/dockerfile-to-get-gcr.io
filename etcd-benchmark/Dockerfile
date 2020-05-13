@@ -1,5 +1,5 @@
 FROM golang:1.13-alpine
-RUN apk --update add git \
+RUN apk --update add git ca-certificates \
     && go get go.etcd.io/etcd/tools/benchmark
 
 FROM alpine:edge
