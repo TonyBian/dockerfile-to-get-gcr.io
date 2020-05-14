@@ -1,50 +1,52 @@
 <!--ts-->
-   * [使用roles组装快速构建应用部署playbook](#使用roles组装快速构建应用部署playbook)
-         * [背景](#背景)
-         * [痛点](#痛点)
-         * [方案](#方案)
-         * [roles引擎目录结构示例](#roles引擎目录结构示例)
-         * [组装后的完整playbook目录结构示例](#组装后的完整playbook目录结构示例)
-         * [接口文件格式示例](#接口文件格式示例)
-         * [已提供的roles引擎列表](#已提供的roles引擎列表)
-         * [ansible 引擎要求](#ansible-引擎要求)
-   * [MySQL初始化role引擎](#mysql初始化role引擎)
-         * [功能说明](#功能说明)
-         * [使用说明](#使用说明)
-         * [文件/目录说明](#文件目录说明)
-         * [参数说明](#参数说明)
-         * [ansible引擎依赖](#ansible引擎依赖)
-   * [MongoDB初始化role引擎](#mongodb初始化role引擎)
-         * [功能说明](#功能说明-1)
-         * [使用说明](#使用说明-1)
-         * [文件/目录说明](#文件目录说明-1)
-         * [参数说明](#参数说明-1)
-         * [ansible引擎依赖](#ansible引擎依赖-1)
-   * [Docker镜像初始化role引擎](#docker镜像初始化role引擎)
-         * [功能说明](#功能说明-2)
-         * [使用说明](#使用说明-2)
-         * [文件/目录说明](#文件目录说明-2)
-         * [参数说明](#参数说明-2)
-   * [基于k8s的应用初始化role引擎](#基于k8s的应用初始化role引擎)
-         * [功能说明](#功能说明-3)
-         * [使用说明](#使用说明-3)
-         * [文件/目录说明](#文件目录说明-3)
-         * [参数说明](#参数说明-3)
-         * [ansible引擎依赖](#ansible引擎依赖-2)
-   * [coredns初始化role引擎](#coredns初始化role引擎)
-         * [功能说明](#功能说明-4)
-         * [使用说明](#使用说明-4)
-         * [文件/目录说明](#文件目录说明-4)
-   * [Apollo初始化role引擎](#apollo初始化role引擎)
-         * [功能说明](#功能说明-5)
-         * [使用说明](#使用说明-5)
-         * [文件/目录说明](#文件目录说明-5)
-         * [参数说明](#参数说明-4)
-         * [ansible引擎依赖](#ansible引擎依赖-3)
+
+- [使用 roles 组装快速构建应用部署 playbook](#使用roles组装快速构建应用部署playbook)
+  - [背景](#背景)
+  - [痛点](#痛点)
+  - [方案](#方案)
+  - [roles 引擎目录结构示例](#roles引擎目录结构示例)
+  - [组装后的完整 playbook 目录结构示例](#组装后的完整playbook目录结构示例)
+  - [接口文件格式示例](#接口文件格式示例)
+  - [已提供的 roles 引擎列表](#已提供的roles引擎列表)
+  - [ansible 引擎要求](#ansible-引擎要求)
+- [MySQL 初始化 role 引擎](#mysql初始化role引擎)
+  - [功能说明](#功能说明)
+  - [使用说明](#使用说明)
+  - [文件/目录说明](#文件目录说明)
+  - [参数说明](#参数说明)
+  - [ansible 引擎依赖](#ansible引擎依赖)
+- [MongoDB 初始化 role 引擎](#mongodb初始化role引擎)
+  - [功能说明](#功能说明-1)
+  - [使用说明](#使用说明-1)
+  - [文件/目录说明](#文件目录说明-1)
+  - [参数说明](#参数说明-1)
+  - [ansible 引擎依赖](#ansible引擎依赖-1)
+- [Docker 镜像初始化 role 引擎](#docker镜像初始化role引擎)
+  - [功能说明](#功能说明-2)
+  - [使用说明](#使用说明-2)
+  - [文件/目录说明](#文件目录说明-2)
+  - [参数说明](#参数说明-2)
+- [基于 k8s 的应用初始化 role 引擎](#基于k8s的应用初始化role引擎)
+  - [功能说明](#功能说明-3)
+  - [使用说明](#使用说明-3)
+  - [文件/目录说明](#文件目录说明-3)
+  - [参数说明](#参数说明-3)
+  - [ansible 引擎依赖](#ansible引擎依赖-2)
+- [coredns 初始化 role 引擎](#coredns初始化role引擎)
+  - [功能说明](#功能说明-4)
+  - [使用说明](#使用说明-4)
+  - [文件/目录说明](#文件目录说明-4)
+- [Apollo 初始化 role 引擎](#apollo初始化role引擎)
+  - [功能说明](#功能说明-5)
+  - [使用说明](#使用说明-5)
+  - [文件/目录说明](#文件目录说明-5)
+  - [参数说明](#参数说明-4)
+  - [ansible 引擎依赖](#ansible引擎依赖-3)
 
 <!-- Added by: root, at: Thu May 14 02:02:57 UTC 2020 -->
 
 <!--te-->
+
 # 使用`roles`组装快速构建应用部署`playbook`
 
 ### 背景
@@ -114,7 +116,7 @@
 - `hosts.yaml`
 
 ```bash
-kube_master:                               # 主机清单分组名称key，不能重复
+kube_master:                                 # 主机清单分组名称key，不能重复
   label: k8s集群master节点分组               # 在房角石系统上的显示名称，用于为应用实例绑定主机节点
   description: 选择k8s集群所有master节点主机
 kube_node:
@@ -125,7 +127,7 @@ kube_node:
 - `playbook.yaml`
 
 ```bash
-- import_playbook: mysql_init.yaml         # 根据应用情况按顺序导入所有roles执行入口文件
+- import_playbook: mysql_init.yaml           # 根据应用情况按顺序导入所有roles执行入口文件
 - import_playbook: coredns_init.yaml
 - import_playbook: images_init.yaml
 - import_playbook: k8s_app_init.yaml
@@ -135,11 +137,11 @@ kube_node:
 
 ```bash
 # app_init
-- key: k8s_app_init_k8s_namespace          # 参数名称，对应待渲染文件中的变量名称，不能重复
-  label: k8s namespace                     # 参数在房角石系统上的显示名称
-  value: glodon-taier                      # 参数默认值
-  type: string                             # 参数类型，目前只支持string
-  required: 1                              # 是否必填，1为必填，0为非必填
+- key: k8s_app_init_k8s_namespace            # 参数名称，对应待渲染文件中的变量名称，不能重复
+  label: k8s namespace                       # 参数在房角石系统上的显示名称
+  value: glodon-taier                        # 参数默认值
+  type: string                               # 参数类型，目前只支持string
+  required: 1                                # 是否必填，1为必填，0为非必填
   description: 应用所在的k8s namespace       # 参数描述
 - key: k8s_app_init_kubeconfig_path
   label: kubeconfig文件地址
@@ -164,8 +166,8 @@ kube_node:
 - `stages.yaml`
 
 ```bash
-- stage: 01:mysql初始化                        # 分步部署步骤名称
-  playbook: mysql_init.yaml                   # 对应的role执行入口文件名称
+- stage: 01:mysql初始化                             # 分步部署步骤名称
+  playbook: mysql_init.yaml                         # 对应的role执行入口文件名称
   description: 创建数据库，导入数据最小集sql文件    # 步骤描述
 - stage: 02:coredns初始化
   playbook: coredns_init.yaml
