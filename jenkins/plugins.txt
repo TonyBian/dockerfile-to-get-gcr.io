@@ -8,3 +8,7 @@ localization-zh-cn:1.0.14
 timestamper:1.11.3
 build-timestamp:1.0.3
 ws-cleanup:0.38
+ssh:2.6.1
+publish-over-ssh:1.20.1
+ssh-steps:2.0.0
+ssh-agent:1.19
