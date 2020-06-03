@@ -1,0 +1,10 @@
+gitlab-plugin:1.5.13
+bitbucket:1.1.11
+workflow-aggregator:2.6
+blueocean:1.23.2
+blueocean-executor-info:1.23.2
+docker-plugin:1.2.0
+localization-zh-cn:1.0.14
+timestamper:1.11.3
+build-timestamp:1.0.3
+ws-cleanup:0.38
