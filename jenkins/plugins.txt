@@ -12,3 +12,6 @@ ssh:2.6.1
 publish-over-ssh:1.20.1
 ssh-steps:2.0.0
 ssh-agent:1.19
+nested-view:1.17
+jira-steps:1.6.0
+build-user-vars-plugin:1.5
