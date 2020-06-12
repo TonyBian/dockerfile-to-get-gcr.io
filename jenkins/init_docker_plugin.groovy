@@ -36,14 +36,14 @@ def dockerTemplateBaseParameters = [
 ]
 
 def DockerTemplateParameters = [
-  instanceCapStr: '4',
+  instanceCapStr: '10',
   labelString:    labelString,
   remoteFs:       ''
 ]
 
 def dockerCloudParameters = [
   connectTimeout:   3,
-  containerCapStr:  '4',
+  containerCapStr:  '10',
   credentialsId:    '',
   dockerHostname:   '',
   name:             'docker.local',

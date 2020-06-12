@@ -16,3 +16,9 @@ ssh-agent:1.19
 nested-view:1.17
 jira-steps:1.6.0
 build-user-vars-plugin:1.5
+ant:1.11
+htmlpublisher:1.23
+email-ext-recipients-column:1.0
+performance:3.17
+testng-plugin:1.15
+robot:2.1.1
