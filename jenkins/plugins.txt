@@ -22,3 +22,5 @@ email-ext-recipients-column:1.0
 performance:3.17
 testng-plugin:1.15
 robot:2.1.1
+active-directory:2.16
+role-strategy:2.222.1
